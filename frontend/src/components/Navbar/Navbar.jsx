@@ -1,27 +1,30 @@
 import React, { useState } from 'react';
 import './Navbar.css';
 import { assets } from '../../assets/assets';
+import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({setShowLogin}) => {
     const [menu, setMenu] = useState("home"); // Changed default to "home"
 
     return (
         <div className='navbar'>
             <img src={assets.logo} alt='logo' className='logo' />
             <ul className='navbar-menu'>
-                {["home", "menu", "mobile-app", "contact-us"].map(item => (
-                    <li key={item} onClick={() => setMenu(item)} className={menu === item ? "active" : ""}>
-                        {item.replace("-", " ")} {/* Format for display */}
-                    </li>
-                ))}
+                <Link to='/' onClick={()=>setMenu("home")} className={menu==="home"?"active":""}>home</Link>
+                <a href='#explore-menu' onClick={()=>setMenu("menu")} className={menu==="menu"?"active":""}>menu</a> 
+                <a href='#app-download' onClick={()=>setMenu("mobile-app")} className={menu==="mobile-app"?"active":""}>mobile-app</a> 
+                <a href='#footer' onClick={()=>setMenu("contact-us")} className={menu==="contact-us"?"active":""}>contact-us</a>         
+
+
+
             </ul>
             <div className='navbar-right'>
-                <img src={assets.search_icon} alt='Search' aria-hidden="true" />
+                <img src={assets.search_icon} alt='' />
                 <div className='navbar-search-icon'>
-                    <img src={assets.basket_icon} alt="Basket" />
+                    <img src={assets.basket_icon} alt="" />
                     <div className='dot'></div>
                 </div>
-                <button aria-label="Sign In">Sign In</button>
+                <button onClick={()=>setShowLogin(true)}>Sign In</button>
             </div>
         </div>
     );
