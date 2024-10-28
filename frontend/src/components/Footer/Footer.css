@@ -58,3 +58,8 @@
         text-align: center;
     }
 }
+
+.footer-content-left #logo{
+    width: 150px;
+    border-radius: 4px;
+}
