@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import './PlaceOrder.css'
 import { StoreContext } from '../../context/StoreContext'
+import axios from 'axios';
 
 const PlaceOrder = () => {
 
@@ -34,6 +35,17 @@ const PlaceOrder = () => {
         orderItems.push(itemInfo);
       }
     })
+    let orderData = {
+      address:data,
+      items:orderItems,
+      amount:getTotalCartAmount()+2,
+    }
+    let response = await axios.post(url+"/api/order/place",orderData,{headers:{token}})
+    if (response.data.success) {
+      const {session_url} = response.data;
+      window.location.replace(session_url);
+    }
+    alert(response.data.message || "Error placing the order. Please try again.");
   }
 
   return (
