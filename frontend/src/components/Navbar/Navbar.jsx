@@ -30,14 +30,12 @@ const Navbar = ({ setShowLogin }) => {
 
     return (
         <div className='navbar'>
-            <Link to='/'><img src={assets.logo} alt='' className='logo' /></Link>
+            <Link to='/' onClick={() => setMenu("home")} className={menu === "home" ? "" : ""}><img src={assets.logo} alt='' className='logo' /></Link>
             <ul className='navbar-menu'>
-                <Link to='/' onClick={() => setMenu("home")} className={menu === "home" ? "active" : ""}>home</Link>
-                <a href="#" onClick={() => handleScrollToSection('explore-menu')} className={menu === "menu" ? "active" : ""}>menu</a>
-                <a href="#" onClick={() => handleScrollToSection('app-download')} className={menu === "mobile-app" ? "active" : ""}>mobile-app</a>
-                <a href="#" onClick={() => handleScrollToSection('footer')} className={menu === "contact-us" ? "active" : ""}>contact-us</a>
+                <a href="#explore-menu" onClick={() => handleScrollToSection('explore-menu')} className={menu === "menu" ? "active" : ""}>menu</a>
                 <Link to='/myorders' onClick={() => setMenu("track-order")} className={menu === "track-order" ? "active" : ""}>track order</Link>
-                <a href='http://localhost:5173/orders' className='deliver-button'>Deliver</a>
+                <Link to='/printout' onClick={() => setMenu("printout")} className={menu === "printout" ? "active" : ""}>printout</Link>
+                <Link to='/parcel' onClick={() => setMenu("parcel")} className={menu === "parcel" ? "active" : ""}>parcel</Link>
             </ul>
             <div className='navbar-right'>
                 <div className='navbar-search-icon'>
@@ -48,7 +46,7 @@ const Navbar = ({ setShowLogin }) => {
                     : <div className='navbar-profile'>
                         <img src={assets.profile_icon} alt='' />
                         <ul className='nav-profile-dropdown'>
-                            <li onClick={() => navigate('/myorders')}><p>Orders</p></li>
+                            <Link to='/deliver' className='deliver-button'>Deliver</Link>
                             <hr />
                             <li onClick={logout}><img src={assets.logout_icon} alt='' /><p>Logout</p></li>
                         </ul>

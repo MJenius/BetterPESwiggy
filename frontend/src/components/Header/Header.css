@@ -31,12 +31,27 @@
 
 .header-contents button {
     border: none;
-    color: #747474;
+    color: #263e79;
     font-weight: 500;
     padding: 1vw 2.3vw;
     background-color: white;
     font-size: max(1vw,13px);
     border-radius: 50px;
+}
+
+.view-menu {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: white;
+    color: #263e79;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.view-menu:hover {
+    transform: scale(1.05);
+    transition-duration: 0.2s;
 }
 
 @media (max-width:1050px) {
