@@ -19,7 +19,16 @@ const Orders = ({url}) => {
     else {
       toast.error("Error")
     }
-  }
+  };
+
+  const removeOrder = async (orderId) => {
+    try {
+      await axios.delete(`${url}/api/order/${orderId}`);
+      fetchAllOrders();
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const statusHandler = async (event,orderId) => {
     const response = await axios.post(url+"/api/order/status",{
@@ -67,6 +76,9 @@ const Orders = ({url}) => {
               <option value="Out for delivery">Out for delivery</option>
               <option value="Delivered">Delivered</option>
             </select>
+            <div className='order-item-remove'>
+              <button className='order-item-button' onClick={() => removeOrder(order._id)}>Delete Order</button>
+            </div>
           </div>
         ))}
       </div>

@@ -1,6 +1,6 @@
 .order-item {
     display: grid;
-    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr;
     align-items: start;
     gap: 30px;
     border: 1px solid #fc8019;
@@ -31,6 +31,23 @@
     outline: none;
 }
 
+.order-item-button {
+    background-color: #ffe8e4; /* Match the select background color */
+    color: #505050; /* Text color to match the order item text */
+    border: 1px solid #fc8019; /* Border color to match the select */
+    padding: 10px; /* Padding for the button */
+    font-size: 14px; /* Font size */
+    font-weight: 600; /* Font weight */
+    cursor: pointer; /* Pointer cursor on hover */
+    outline: none; /* Remove outline */
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.order-item-button:hover {
+    background-color: #263e79; /* Darken the button on hover */
+    color: white; /* Change border color on hover */
+}
+
 @media (max-width:1000px) {
     .order-item {
         font-size: 12px;
@@ -43,5 +60,9 @@
     }
     .order-item img {
         width: 40px;
+    }
+    .order-item-button {
+        font-size: 12px; /* Adjust font size for smaller screens */
+        padding: 8px; /* Adjust padding for smaller screens */
     }
 }

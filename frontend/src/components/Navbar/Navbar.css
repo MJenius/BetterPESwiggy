@@ -35,7 +35,8 @@
 }
 
 .navbar button:hover {
-    background-color: #fff4f2;
+    background-color: #263e79;
+    color: white;
 }
 
 .navbar .active {

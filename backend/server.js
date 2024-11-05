@@ -29,6 +29,7 @@ app.use("/images",express.static('uploads'))
 app.use("/api/user",userRouter)
 app.use("/api/cart",cartRouter)
 app.use("/api/order",orderRouter)
+app.delete("/api/order/:orderId",orderRouter);
 
 app.listen(port,()=>{
     console.log(`Server Started on http://localhost:${port}`)
