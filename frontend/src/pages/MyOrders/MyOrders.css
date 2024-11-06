@@ -34,12 +34,15 @@
 }
 
 .my-orders-order button {
-    border: none;
-    padding: 12px 0px;
-    border-radius: 4px;
-    background-color: #ffe1e1;
+    background-color: #ffe8e4;
+    color: #505050;
+    border: 1px solid #fc8019;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
-    color: #454545;
+    outline: none;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 @media (max-width:900px) {
