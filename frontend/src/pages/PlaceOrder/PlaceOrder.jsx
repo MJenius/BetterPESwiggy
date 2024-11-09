@@ -1,3 +1,5 @@
+// frontend/src/pages/PlaceOrder/PlaceOrder.jsx
+
 import React, { useContext, useEffect, useState } from 'react'
 import './PlaceOrder.css'
 import { StoreContext } from '../../context/StoreContext'
@@ -9,15 +11,8 @@ const PlaceOrder = () => {
   const {getTotalCartAmount,token,food_list,cartItems,url} = useContext(StoreContext);
 
   const [data,setData] = useState({
-    firstName:"",
-    lastName:"",
-    email:"",
-    street:"",
-    city:"",
-    state:"",
-    zipcode:"",
-    country:"",
-    phone:""
+    destination:"",
+    additionalInformation:""
   })
 
   const onChangeHandler = (event) => {
@@ -26,30 +21,22 @@ const PlaceOrder = () => {
     setData(data=>({...data,[name]:value}))
   }
 
-  const placeOrder = async (event) => {
-    event.preventDefault();
-    let orderItems = [];
-    food_list.map((item)=>{
-      if (cartItems[item._id]>0) {
-        let itemInfo = item;
-        itemInfo["quantity"] = cartItems[item._id];
-        orderItems.push(itemInfo);
-      }
-    })
-    let orderData = {
-      address:data,
-      items:orderItems,
-      amount:getTotalCartAmount()+2,
+  const placeOrder = async (req, res) => {
+    try {
+      const newOrder = new orderModel({
+        userId: req.body.userId,
+        items: req.body.items,
+        amount: req.body.amount,
+        address: req.body.address,
+      });
+      await newOrder.save();
+      await userModel.findByIdAndUpdate(req.body.userId, { cartData: {} });
+      res.json({ success: true, message: "Order placed successfully" });
+    } catch (error) {
+      console.log(error);
+      res.json({ success: false, message: "Error placing order" });
     }
-    let response = await axios.post(url+"/api/order/place",orderData,{headers:{token}})
-    if (response.data.success) {
-      const {session_url} = response.data;
-      window.location.replace(session_url);
-    }
-    else {
-      alert("Error");
-    }
-  }
+  };
 
   const navigate = useNavigate();
 
@@ -65,22 +52,9 @@ const PlaceOrder = () => {
   return (
     <form onSubmit={placeOrder} className='place-order'>
       <div className='place-order-left'>
-        <p className='title'>Delivery Information</p>
-        <div className='multi-fields'>
-          <input required name='firstName' onChange={onChangeHandler} value={data.firstName} type='text' placeholder='First Name'/>
-          <input required name='lastName' onChange={onChangeHandler} value={data.lastName} type='text' placeholder='Last Name'/>
-        </div>
-        <input required name='email' onChange={onChangeHandler} value={data.email} type='email' placeholder='Email Address'/>
-        <input required name='street' onChange={onChangeHandler} value={data.street} type='text' placeholder='Street'/>
-        <div className='multi-fields'>
-          <input required name='city' onChange={onChangeHandler} value={data.city} type='text' placeholder='City'/>
-          <input required name='state' onChange={onChangeHandler} value={data.state} type='text' placeholder='State'/>
-        </div>
-        <div className='multi-fields'>
-          <input required name='zipcode' onChange={onChangeHandler} value={data.zipcode} type='text' placeholder='Zip code'/>
-          <input required name='country' onChange={onChangeHandler} value={data.country} type='text' placeholder='Country'/>
-        </div>
-        <input required name='phone' onChange={onChangeHandler} value={data.phone} type='text' placeholder='Phone'/>
+        <p className='title'>Order Details</p>
+        <input required name='destination' onChange={onChangeHandler} value={data.destination} type='text' placeholder='Destination'/>
+        <input required name='additionalInformation' onChange={onChangeHandler} value={data.additionalInformation} type='text' placeholder='Additional Information'/>
       </div>
       <div className='place-order-right'>
         <div className='cart-total'>
@@ -94,7 +68,7 @@ const PlaceOrder = () => {
               <b>Total:</b>
               <b>${getTotalCartAmount()===0?0:getTotalCartAmount()+2}</b>
             </div>
-            <button type='submit'>PROCEED TO PAYMENT</button>
+            <button type='submit'>PLACE ORDER</button>
           </div>
       </div>
     </form>

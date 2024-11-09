@@ -8,18 +8,14 @@ const Account = () => {
   const navigate = useNavigate();
   const { token } = useContext(StoreContext);
   const [user, setUser ] = useState({
-    firstName: '',
-    lastName: '',
+    Name: '',
+    SRN:'',
     email: '',
-    street: '',
-    city: '',
-    state: '',
-    zipcode: '',
-    country: '',
     phone: '',
-    profilePicture: null,
+    sem:'',
+    section:'',
+    branch: ''
   });
-  const [profilePicture, setProfilePicture] = useState(null); // State for file input
 
   const fetchUser  = async () => {
     try {
@@ -46,26 +42,16 @@ const Account = () => {
     }));
   };
 
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    setProfilePicture(file); // Update the profilePicture state
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
-    formData.append('firstName', user.firstName);
-    formData.append('lastName', user.lastName);
+    formData.append('Name', user.Name);
+    formData.append('SRN', user.SRN);
     formData.append('email', user.email);
-    formData.append('street', user.street);
-    formData.append('city', user.city);
-    formData.append('state', user.state);
-    formData.append('zipcode', user.zipcode);
-    formData.append('country', user.country);
     formData.append('phone', user.phone);
-    if (profilePicture) {
-      formData.append('profilePicture', profilePicture); // Append the file to FormData
-    }
+    formData.append('sem', user.sem);
+    formData.append('section', user.section);
+    formData.append('branch', user.branch);
 
     try {
       await axios.put('/api/users/me', formData, {
@@ -82,32 +68,23 @@ const Account = () => {
 
   return (
     <div className="account-page">
-      <div className="account-profile">
-        <img
-          src={user.profilePicture || 'default-placeholder.png'} // Use a default placeholder image if no profile picture is available
-          alt={`${user.firstName || ''} ${user.lastName || ''}`} // Use empty string if names are undefined
-          className="profile-picture"
-        />
-        <h2>{`${user.firstName || ''} ${user.lastName || ''}`}</h2> {/* Only show names if defined */}
-        <p className="email">{user.email || ''}</p> {/* Only show email if defined */}
-      </div>
       <form className="account-info" onSubmit={handleSubmit}>
         <h3>Account Information</h3>
         <div className="account-item">
-          <label>First Name:</label>
+          <label>Name:</label>
           <input
             type="text"
-            name="firstName"
-            value={user.firstName || ''}
+            name="Name"
+            value={user.Name || ''}
             onChange={handleInputChange}
           />
         </div>
         <div className="account-item">
-          <label>Last Name:</label>
+          <label>SRN:</label>
           <input
             type="text"
-            name="lastName"
-            value={user.lastName || ''}
+            name="SRN"
+            value={user.SRN || ''}
             onChange={handleInputChange}
           />
         </div>
@@ -121,65 +98,39 @@ const Account = () => {
           />
         </div>
         <div className="account-item">
-          <label>Street:</label>
-          <input
-            type="text"
-            name="street"
-            value={user.street || ''}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="account-item">
-          <label>City:</label>
-          <input
-            type="text"
-            name="city"
-            value={user.city || ''}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="account-item">
-          <label>State:</label>
-          <input
-            type=" text"
-            name="state"
-            value={user.state || ''}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="account-item">
-          <label>Zipcode:</label>
-          <input
-            type="text"
-            name="zipcode"
-            value={user.zipcode || ''}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="account-item">
-          <label>Country:</label>
-          <input
-            type="text"
-            name="country"
-            value={user.country || ''}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="account-item">
           <label>Phone:</label>
           <input
-            type="text"
+            type="number"
             name="phone"
             value={user.phone || ''}
             onChange={handleInputChange}
           />
         </div>
         <div className="account-item">
-          <label>Profile Picture:</label>
+          <label>Sem:</label>
           <input
-            type="file"
-            accept="image/*"
-            onChange={handleFileChange}
+            type=" text"
+            name="sem"
+            value={user.sem || ''}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="account-item">
+          <label>Section:</label>
+          <input
+            type="text"
+            name="section"
+            value={user.section || ''}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="account-item">
+          <label>Branch:</label>
+          <input
+            type="text"
+            name="branch"
+            value={user.branch || ''}
+            onChange={handleInputChange}
           />
         </div>
         <button type="submit">Update Account</button>

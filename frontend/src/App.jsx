@@ -5,10 +5,10 @@ import Home from './pages/Home/Home'
 import Cart from './pages/Cart/Cart'
 import Footer from './components/Footer/Footer'
 import LoginPopup from './components/LoginPopup/LoginPopup'
-import Verify from './pages/Verify/Verify'
 import MyOrders from './pages/MyOrders/MyOrders'
 import Deliver from './pages/Deliver/Deliver'
 import Account from './pages/Account/Account';
+import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
 
 const App = () => {
   const [showLogin,setShowLogin] = useState(false)
@@ -20,10 +20,10 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/verify" element={<Verify/>}/>
           <Route path='/myorders' element={<MyOrders/>}/>
           <Route path='/deliver' element={<Deliver/>}/>
           <Route path='/account' element={<Account />} />
+          <Route path="/order" element={<PlaceOrder />} />
         </Routes>
       </div>
       <Footer/>
