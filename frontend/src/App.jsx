@@ -9,6 +9,7 @@ import MyOrders from './pages/MyOrders/MyOrders'
 import Deliver from './pages/Deliver/Deliver'
 import Account from './pages/Account/Account';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
+import Parcel from './pages/Parcel/Parcel'
 
 const App = () => {
   const [showLogin,setShowLogin] = useState(false)
@@ -24,6 +25,7 @@ const App = () => {
           <Route path='/deliver' element={<Deliver/>}/>
           <Route path='/account' element={<Account />} />
           <Route path="/order" element={<PlaceOrder />} />
+          <Route path='/parcel' element={<Parcel/>}/>
         </Routes>
       </div>
       <Footer/>

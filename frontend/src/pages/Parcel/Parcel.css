@@ -1,0 +1,72 @@
+/* Main Container */
+.parcel-page {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* Page Styles */
+.parcel-page h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.parcel-page p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Form Styles */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Specific Styles for Item Input */
+.item-input {
+    height: 150px; /* Increased height for item input */
+}
+
+/* Button Styles */
+.button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Additional Instructions */
+.additional-instructions {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.additional-instructions h3 {
+    margin-top: 0;
+}
+
+.additional-instructions p {
+    margin: 5px 0;
+}
