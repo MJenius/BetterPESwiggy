@@ -7,7 +7,6 @@ import axios from 'axios'
 import {assets} from '../../assets/assets'
 
 const Orders = ({url}) => {
-
   const [orders,setOrders] = useState([]);
 
   const fetchAllOrders = async () => {
@@ -40,9 +39,10 @@ const Orders = ({url}) => {
     }
   } 
 
-  useEffect(()=>{
-    fetchAllOrders();
-  },[])
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+
 
   return (
     <div className='order add'>
@@ -62,12 +62,10 @@ const Orders = ({url}) => {
                   }
                 })}
               </p>
-              <p className='order-item-name'>{order.address.firstName+" "+order.address.lastName}</p>
               <div className='order-item-address'>
-                <p>{order.address.street+","}</p>
-                <p>{order.address.city+", "+order.address.state+", "+order.address.country+", "+order.address.zipcode}</p>
+                <p>Destination: {order.address.destination}</p>
               </div>
-              <p className='order-item-phone'>{order.address.phone}</p>
+              <p>Additional Information: {order.address.additionalInformation}</p>
             </div>
             <p>Items: {order.items.length}</p>
             <p>${order.amount}</p>

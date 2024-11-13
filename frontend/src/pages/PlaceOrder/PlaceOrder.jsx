@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
-import './PlaceOrder.css'
-import { StoreContext } from '../../context/StoreContext'
+import React, { useContext, useEffect, useState } from 'react';
+import './PlaceOrder.css';
+import { StoreContext } from '../../context/StoreContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const PlaceOrder = () => {
-  const { getTotalCartAmount, token, food_list, cartItems, url } = useContext(StoreContext);
+  const { getTotalCartAmount, token, food_list, cartItems, url, setCartItems } = useContext(StoreContext);
   const [data, setData] = useState({ destination: "", additionalInformation: "" });
   const navigate = useNavigate();
 
@@ -13,6 +13,7 @@ const PlaceOrder = () => {
     const { name, value } = event.target;
     setData((prevData) => ({ ...prevData, [name]: value }));
   };
+
   const placeOrder = async (event) => {
     event.preventDefault();
     try {
@@ -23,12 +24,14 @@ const PlaceOrder = () => {
       }));
       const amount = getTotalCartAmount() + 2; // Including delivery fee
       const address = { destination: data.destination, additionalInformation: data.additionalInformation };
-  
+
       const response = await axios.post(`${url}/api/order/place`, { items, amount, address }, {
         headers: { token: token } // Pass token as 'token' in headers
       });
-  
+
       if (response.data.success) {
+        // Clear the cart after successfully placing the order
+        setCartItems({});
         navigate('/myorders');
       } else {
         console.error(response.data.message);
