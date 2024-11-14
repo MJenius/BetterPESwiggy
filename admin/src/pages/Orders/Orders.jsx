@@ -40,8 +40,8 @@ const Orders = ({url}) => {
   } 
 
   useEffect(() => {
-    fetchUserData();
-  }, []);
+    fetchAllOrders();
+  },[])
 
 
   return (
