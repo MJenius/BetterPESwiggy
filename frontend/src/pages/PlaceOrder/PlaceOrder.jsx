@@ -55,19 +55,32 @@ const PlaceOrder = () => {
         <input required name='additionalInformation' onChange={onChangeHandler} value={data.additionalInformation} type='text' placeholder='Additional Information' />
       </div>
       <div className='place-order-right'>
-        <div className='cart-total'>
-          <h2>Cart Totals</h2>
-          <div className='cart-total-details'>
-            <p>Delivery Fee:</p>
-            <p>${getTotalCartAmount() === 0 ? 0 : 2}</p>
-          </div>
-          <hr />
-          <div className='cart-total-details'>
-            <b>Total:</b>
-            <b>${getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}</b>
-          </div>
-          <button type='submit'>PLACE ORDER</button>
-        </div>
+      <div className='cart-total'>
+  <h2>Cart Totals</h2>
+  {Object.keys(cartItems).map((itemId) => {
+    const itemInfo = food_list.find((product) => product._id === itemId);
+    return (
+      <div key={itemId} className='cart-total-details'>
+        <p>{itemInfo.name} x {cartItems[itemId]}</p>
+        <p>${itemInfo.price * cartItems[itemId]}</p>
+      </div>
+    );
+  })}
+  <div className='cart-total-details'>
+    <p>Subtotal:</p>
+    <p>${getTotalCartAmount()}</p>
+  </div>
+  <hr />
+  <div className='cart-total-details'>
+    <p>Delivery Fee:</p>
+    <p>${getTotalCartAmount() === 0 ? 0 : 2}</p>
+  </div>
+  <div className='cart-total-details'>
+    <b>Total:</b>
+    <b>${getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}</b>
+  </div>
+  <button type='submit'>PLACE ORDER</button>
+</div>
       </div>
     </form>
   );
