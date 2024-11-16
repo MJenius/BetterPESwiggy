@@ -20,6 +20,7 @@ const Navbar = ({ setShowLogin }) => {
 
     const handleScrollToSection = (section) => {
         navigate('/');
+        setMenu(section);
         setTimeout(() => {
             const element = document.getElementById(section);
             if (element) {
