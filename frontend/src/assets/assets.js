@@ -86,35 +86,35 @@ export const assets = {
 
 export const menu_list = [
     {
-        menu_name: "Salad",
+        menu_name: "Pes Food Point",
         menu_image: menu_1
     },
     {
-        menu_name: "Rolls",
+        menu_name: "Slv Condiments",
         menu_image: menu_2
     },
     {
-        menu_name: "Desserts",
+        menu_name: "Campus Mart",
         menu_image: menu_3
     },
     {
-        menu_name: "Sandwich",
+        menu_name: "CCD",
         menu_image: menu_4
     },
     {
-        menu_name: "Cake",
+        menu_name: "Cantina",
         menu_image: menu_5
     },
     {
-        menu_name: "Pure Veg",
+        menu_name: "Halli Mane",
         menu_image: menu_6
     },
     {
-        menu_name: "Pasta",
+        menu_name: "Bengaluru Kitchen",
         menu_image: menu_7
     },
     {
-        menu_name: "Noodles",
+        menu_name: "Pes Food Court",
         menu_image: menu_8
     }]
 
@@ -125,7 +125,7 @@ export const food_list = [
         image: food_1,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        category: "Pes Food Point"
     },
     {
         _id: "2",
@@ -133,21 +133,21 @@ export const food_list = [
         image: food_2,
         price: 18,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        category: "Pes Food Point"
     }, {
         _id: "3",
         name: "Clover Salad",
         image: food_3,
         price: 16,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        category: "Pes Food Point"
     }, {
         _id: "4",
         name: "Chicken Salad",
         image: food_4,
         price: 24,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        category: "Pes Food Point"
     }, {
         _id: "5",
         name: "Lasagna Rolls",
