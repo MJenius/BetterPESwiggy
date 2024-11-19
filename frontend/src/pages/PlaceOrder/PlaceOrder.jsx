@@ -62,22 +62,22 @@ const PlaceOrder = () => {
     return (
       <div key={itemId} className='cart-total-details'>
         <p>{itemInfo.name} x {cartItems[itemId]}</p>
-        <p>${itemInfo.price * cartItems[itemId]}</p>
+        <p>Rs.{itemInfo.price * cartItems[itemId]}</p>
       </div>
     );
   })}
   <div className='cart-total-details'>
     <p>Subtotal:</p>
-    <p>${getTotalCartAmount()}</p>
+    <p>Rs.{getTotalCartAmount()}</p>
   </div>
   <hr />
   <div className='cart-total-details'>
     <p>Delivery Fee:</p>
-    <p>${getTotalCartAmount() === 0 ? 0 : 2}</p>
+    <p>Rs.{getTotalCartAmount() === 0 ? 0 : 2}</p>
   </div>
   <div className='cart-total-details'>
     <b>Total:</b>
-    <b>${getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}</b>
+    <b>Rs.{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}</b>
   </div>
   <button type='submit'>PLACE ORDER</button>
 </div>
