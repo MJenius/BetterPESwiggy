@@ -1,4 +1,3 @@
-![image](https://github.com/user-attachments/assets/bbc17e25-f4ed-4ed2-a2d1-23dd5b845719)![image](https://github.com/user-attachments/assets/a7c953c4-58ac-4d9e-a669-c723e2e56ee4)![image](https://github.com/user-attachments/assets/95162c55-c31a-45a9-a717-5154a37f3e0c)![image](https://github.com/user-attachments/assets/14a087d2-c6ef-4c17-a465-81715f6ce68e)![image](https://github.com/user-attachments/assets/fae29c24-18ce-4ef0-8fbf-0f7dff697bf2)
 # PESwiggy Delivery Website
 
 Peswiggy is a MERN-stack-based delivery platform tailored for college campuses. It allows students to sign up as customers or delivery personnel, enabling on-campus delivery of food, stationery, and other essentials. The platform operates with a small profit margin model, creating a seamless ordering and delivery experience for students.
