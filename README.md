@@ -1,4 +1,4 @@
-
+![image](https://github.com/user-attachments/assets/bbc17e25-f4ed-4ed2-a2d1-23dd5b845719)![image](https://github.com/user-attachments/assets/a7c953c4-58ac-4d9e-a669-c723e2e56ee4)![image](https://github.com/user-attachments/assets/95162c55-c31a-45a9-a717-5154a37f3e0c)![image](https://github.com/user-attachments/assets/14a087d2-c6ef-4c17-a465-81715f6ce68e)![image](https://github.com/user-attachments/assets/fae29c24-18ce-4ef0-8fbf-0f7dff697bf2)
 # PESwiggy Delivery Website
 
 Peswiggy is a MERN-stack-based delivery platform tailored for college campuses. It allows students to sign up as customers or delivery personnel, enabling on-campus delivery of food, stationery, and other essentials. The platform operates with a small profit margin model, creating a seamless ordering and delivery experience for students.
@@ -32,9 +32,20 @@ Peswiggy is a MERN-stack-based delivery platform tailored for college campuses. 
 - [@MJenius](https://www.github.com/MJenius)
 - [@rajeev8008](https://github.com/rajeev8008)
 - [@ZeroDeaths7](https://github.com/ZeroDeaths7)
+  
 ## Screenshots
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Admin/Add](https://github.com/user-attachments/assets/3a023bf9-0cfd-4676-97a7-0ecd0d7a2f97)
+![Admin/ListItems](https://github.com/user-attachments/assets/41355be5-441d-4859-a458-9fd1446842c5)
+![Admin/Orders](https://github.com/user-attachments/assets/c4559122-2fe8-417a-b39c-e424f41b64bc)
+![Fronted/Home](https://github.com/user-attachments/assets/68d665cc-d271-41a7-ba14-66432784565a)
+![Frontend/ExploreMenu](https://github.com/user-attachments/assets/14a1e576-8bf4-42b1-8ac8-1d9f0d9e309e)
+![Frontend/TrackOrders](https://github.com/user-attachments/assets/f8129665-9da9-437a-bc0b-4cfc8571207f)
+![Frontend/Printout](https://github.com/user-attachments/assets/c1574f48-149c-4662-93fb-eae5c994f32b)
+![Frontend/Parcel](https://github.com/user-attachments/assets/605871ec-bdff-413a-bd09-777845077403)
+![Frontend/Cart](https://github.com/user-attachments/assets/397980dd-2889-4b7b-b7b9-f4d5fa211146)
+![Frontend/Checkout](https://github.com/user-attachments/assets/1239f5a2-e62f-4a7b-92d2-2c5e643d77ed)
+![Frontend/Deliver](https://github.com/user-attachments/assets/0e1ad33b-febd-4624-a641-cb8f58270614)
+![Frontend/Account](https://github.com/user-attachments/assets/d6088d43-0003-4cd8-a5c3-41c1e1ee5836)
 
 
 ## Run Locally
