@@ -59,12 +59,16 @@ const PlaceOrder = () => {
   <h2>Cart Totals</h2>
   {Object.keys(cartItems).map((itemId) => {
     const itemInfo = food_list.find((product) => product._id === itemId);
-    return (
-      <div key={itemId} className='cart-total-details'>
-        <p>{itemInfo.name} x {cartItems[itemId]}</p>
-        <p>Rs.{itemInfo.price * cartItems[itemId]}</p>
-      </div>
-    );
+if (itemInfo) {
+  return (
+    <div key={itemId} className='cart-total-details'>
+      <p>{itemInfo.name} x {cartItems[itemId]}</p>
+      <p>Rs.{itemInfo.price * cartItems[itemId]}</p>
+    </div>
+  );
+} else {
+  return null; // or some other default value
+}
   })}
   <div className='cart-total-details'>
     <p>Subtotal:</p>
